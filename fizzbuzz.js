@@ -1,5 +1,5 @@
 //fizzbuzz問題：倍数を出力する
-function fizzbuzz(){
+const fizzbuzz = () => {
 
     let result = document.getElementById('res00001');
 
@@ -13,12 +13,9 @@ function fizzbuzz(){
     }
 
     //要件：文字列・空欄・小数の判定
-    isError = v => {
+    const isError = v => {
         let jv = parseInt(v, 10);
-        if (isNaN(jv) || (jv != v)) {
-            return true;
-        }
-        return false;
+        return isNaN(jv) || (jv !== v);
     };
 
     //エラーチェック
@@ -72,4 +69,4 @@ function fizzbuzz(){
         result.appendChild(ul);
     }
  
-}
+};
