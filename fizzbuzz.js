@@ -1,11 +1,11 @@
 //fizzbuzz問題：倍数を出力する
 const fizzbuzz = () => {
-
+    
     let result = document.getElementById('res00001');
 
     //テキストボックスの値取得
-    const fn = parseInt(document.getElementById('fizznum').value);
-    const bn = parseInt(document.getElementById('buzznum').value);
+    const txfn = document.getElementById('fizznum').value;
+    const txbn = document.getElementById('buzznum').value;
 
     //初期化
     while (result.firstChild) {
@@ -14,12 +14,13 @@ const fizzbuzz = () => {
 
     //要件：文字列・空欄・小数の判定
     const isError = v => {
-        let jv = parseInt(v, 10);
-        return isNaN(jv) || (jv !== v);
+        let iv = parseInt(v, 10);
+        let fv = parseFloat(v);
+        return isNaN(iv) || (fv !== iv);
     };
 
     //エラーチェック
-    if (isError(fn) || isError(bn)) {
+    if (isError(txfn) || isError(txbn)) {
         let msg = document.createElement('p');
         msg.className = "result";
         msg.innerText = "整数値を入力してください";
@@ -29,19 +30,18 @@ const fizzbuzz = () => {
 
     //初期化
     let ul = document.createElement('ul');
+    ul.className = "result";
+    const fn = parseInt(txfn);
+    const bn = parseInt(txbn);
 
-    let fm = fn;
     let fi = 1;
+    let fm = fn * fi;
 
-    let bm = bn;
     let bi = 1;
+    let bm = bn * bi;
 
     //要件：倍数を計算して二桁まで表示する。
-    while((fm < 100) && (bm < 100)){
-
-        //倍数計算処理
-        fm = fn * fi;
-        bm = bn * bi;
+    while((fm < 100) || (bm < 100)){
 
         let li = document.createElement('li');
         li.className = "result";
@@ -61,6 +61,10 @@ const fizzbuzz = () => {
         }
         
         ul.appendChild(li);
+
+        //倍数計算処理
+        fm = fn * fi;
+        bm = bn * bi;
 
     }
 
