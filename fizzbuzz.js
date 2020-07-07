@@ -1,7 +1,7 @@
 //fizzbuzz問題：倍数を出力する
 const fizzbuzz = () => {
     
-    let result = document.getElementById('res00001');
+    let result = document.getElementById('out-result');
 
     //テキストボックスの値取得
     const txfn = document.getElementById('fizznum').value;
